@@ -20,4 +20,6 @@ export interface IProvider {
   title: string;
 }
 
+export type TSearchGame = string;
+
 export type ISelectedProvider = string | null;

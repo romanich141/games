@@ -47,8 +47,8 @@ export const GamesCards = ({
         );
       })}
       <Pagination
-        postInPage={gamesInPage}
-        totalPosts={Object.keys(games).length}
+        gamesInPage={gamesInPage}
+        totalGames={Object.keys(games).length}
         paginate={paginate}
         currentPage={currentPage}
       />

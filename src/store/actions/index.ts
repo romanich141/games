@@ -1,9 +1,10 @@
-import { IGame, IProvider } from '../reducers/index';
+import { IGame, IProvider, TSearchGame } from '@/store/reducers/types';
 
 export enum ActionKind {
   setGames = 'SET_GAMES',
   setSelectedProvider = 'SET_SELECTED_PROVIDER',
   setProviders = 'SET_PROVIDERS',
+  setSearchGame = 'SET_SEARCH_GAME',
 }
 
 export const setGamesAction = (payload: IGame) => ({
@@ -18,5 +19,10 @@ export const setSelectedProviderAction = (payload: string) => ({
 
 export const setProvidersAction = (payload: IProvider[]) => ({
   type: ActionKind.setProviders,
+  payload,
+});
+
+export const setSearchGameAction = (payload: TSearchGame) => ({
+  type: ActionKind.setSearchGame,
   payload,
 });

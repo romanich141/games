@@ -1,5 +1,10 @@
-import { ProviderFilter } from '@/components/ProviderFilter';
+import { ProviderFilter, SearchGame } from '@/components';
 
 export const Header = () => {
-  return <ProviderFilter />;
+  return (
+    <div>
+      <SearchGame />
+      <ProviderFilter />
+    </div>
+  );
 };

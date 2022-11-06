@@ -1,18 +1,18 @@
 interface IPagination {
-  postInPage: number;
-  totalPosts: number;
+  gamesInPage: number;
+  totalGames: number;
   paginate: (number: number) => void;
   currentPage: number;
 }
 
 export const Pagination = ({
-  postInPage,
-  totalPosts,
+  gamesInPage,
+  totalGames,
   paginate,
   currentPage,
 }: IPagination) => {
   let pageNumbers = [];
-  const maxPages = Math.ceil(totalPosts / postInPage);
+  const maxPages = Math.ceil(totalGames / gamesInPage);
 
   for (let i = 1; i <= maxPages; i++) {
     pageNumbers.push(i);

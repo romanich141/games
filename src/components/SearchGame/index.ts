@@ -1,0 +1,1 @@
+export { SearchGame } from './SearchGame';

@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useReducer } from 'react';
 import { reducer } from '../reducers';
-import { IStore } from '../reducers';
+import { IStore } from '@/store/reducers';
 import { IStoreContextProvider } from './types';
 
 interface IStoreProps {
@@ -11,6 +11,7 @@ const initialState: IStore = {
   games: [],
   providers: [],
   selectedProvider: null,
+  searchGame: '',
 };
 
 export const StoreContext = createContext<IStoreContextProvider | null>(null);

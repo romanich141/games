@@ -10,6 +10,7 @@ export interface IStore {
   games: IGame;
   selectedProvider: IProvider | null;
   providers: IProvider[];
+  searchGame: string;
 }
 
 export const reducer = (store: IStore, action: IAction) => {
@@ -28,6 +29,11 @@ export const reducer = (store: IStore, action: IAction) => {
       return {
         ...store,
         selectedProvider: action.payload,
+      };
+    case ActionKind.setSearchGame:
+      return {
+        ...store,
+        searchGame: action.payload,
       };
     default:
       return store;
