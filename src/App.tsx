@@ -1,9 +1,11 @@
-function App() {
+import { Routes, Route } from "react-router-dom";
+import { Games, PageNotFound } from "./pages";
 
-  return (
-    <div className="App">
-    </div>
+export const App = () => {
+  return (    
+    <Routes>
+      <Route path="/" element={<Games />} />
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
   )
-}
-
-export default App
+};

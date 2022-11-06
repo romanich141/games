@@ -1,20 +1,35 @@
+import { IGame, IProvider } from '../../types';
+import { ActionKind } from '../actions';
+
 interface IAction {
-  type: string,
-  payload?: unknown
+  type: string;
+  payload?: unknown;
 }
 
-interface IState {
-  
+export interface IStore {
+  games: IGame;
+  selectedProvider: IProvider | null;
+  providers: IProvider[];
 }
 
-export const reducer = (state: any, action: IAction) => {
+export const reducer = (store: IStore, action: IAction) => {
   switch (action.type) {
-      case 'SET_POSTS':
-          return {
-              ...state,
-              posts: action.payload
-          };
-      default:
-          return state;
+    case ActionKind.setGames:
+      return {
+        ...store,
+        games: action.payload,
+      };
+    case ActionKind.setProviders:
+      return {
+        ...store,
+        providers: action.payload,
+      };
+    case ActionKind.setSelectedProvider:
+      return {
+        ...store,
+        selectedProvider: action.payload,
+      };
+    default:
+      return store;
   }
 };
