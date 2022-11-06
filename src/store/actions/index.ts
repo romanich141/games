@@ -1,4 +1,4 @@
-import { IGame, IProvider } from './../../types/index';
+import { IGame, IProvider } from '../reducers/index';
 
 export enum ActionKind {
   setGames = 'SET_GAMES',
@@ -11,7 +11,7 @@ export const setGamesAction = (payload: IGame) => ({
   payload,
 });
 
-export const setSelectedProviderAction = (payload: IProvider) => ({
+export const setSelectedProviderAction = (payload: string) => ({
   type: ActionKind.setSelectedProvider,
   payload,
 });

@@ -1,11 +1,11 @@
-import { Routes, Route } from "react-router-dom";
-import { Games, PageNotFound } from "./pages";
+import { Routes, Route } from 'react-router-dom';
+import { MainPage, PageNotFound } from './pages';
 
 export const App = () => {
-  return (    
+  return (
     <Routes>
-      <Route path="/" element={<Games />} />
-      <Route path="*" element={<PageNotFound />} />
+      <Route path='/' element={<MainPage />} />
+      <Route path='*' element={<PageNotFound />} />
     </Routes>
-  )
+  );
 };

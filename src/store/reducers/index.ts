@@ -1,5 +1,5 @@
-import { IGame, IProvider } from '../../types';
-import { ActionKind } from '../actions';
+import { IGame, IProvider } from '@/store/reducers/types';
+import { ActionKind } from '@/store/actions';
 
 interface IAction {
   type: string;

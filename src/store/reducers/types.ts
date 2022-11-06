@@ -19,3 +19,5 @@ export interface IProvider {
   id: string;
   title: string;
 }
+
+export type ISelectedProvider = string | null;
