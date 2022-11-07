@@ -1,12 +1,16 @@
 import { useEffect } from 'react';
-import { GamesCards, Header } from '@/components';
-
-import { GAMES_URL } from '@/constants';
+import { Col, Row } from 'antd';
+import { GamesCards, ProviderFilter, SearchGame } from '@/components';
 import { useFetch } from '@/hooks';
 import { setGamesAction } from '@/store/actions';
 import { useDispatch } from '@/store/hooks';
 import { useSearchGamesSelector } from '@/store/selectors';
+import { GAMES_URL } from '@/constants';
 import type { IGame } from '@/types';
+
+import { Layout } from 'antd';
+
+const { Header, Content } = Layout;
 
 export const MainPage = () => {
   const { data = {}, isLoading } = useFetch<IGame>(GAMES_URL);
@@ -21,9 +25,20 @@ export const MainPage = () => {
   }, [data]);
 
   return (
-    <div>
-      <Header />
-      <GamesCards games={games} isLoading={isLoading} />
-    </div>
+    <Layout>
+      <Header>
+        <Row gutter={[16, 16]} align='middle' justify='space-between'>
+          <Col span={12}>
+            <SearchGame />
+          </Col>
+          <Col span={12}>
+            <ProviderFilter />
+          </Col>
+        </Row>
+      </Header>
+      <Content>
+        <GamesCards games={games} isLoading={isLoading} />
+      </Content>
+    </Layout>
   );
 };

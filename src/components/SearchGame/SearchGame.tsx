@@ -1,16 +1,26 @@
+import { ChangeEvent } from 'react';
 import { useDispatch } from '@/store/hooks';
 import { setSearchGameAction } from '@/store/actions';
 import { useSearchTextSelector } from '../../store/selectors';
+import { SearchOutlined } from '@ant-design/icons';
+import { Input } from 'antd';
 
 export const SearchGame = () => {
   const dispatch = useDispatch();
   const searchText = useSearchTextSelector();
 
-  const handleOnChange = (event) => {
-    console.log(event.target.value);
-
+  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     dispatch(setSearchGameAction(event.target.value));
   };
 
-  return <input type='text' value={searchText} onChange={handleOnChange} />;
+  return (
+    <Input
+      prefix={<SearchOutlined />}
+      size='large'
+      type='text'
+      placeholder='Search games'
+      value={searchText}
+      onChange={handleOnChange}
+    />
+  );
 };

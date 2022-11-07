@@ -1,7 +1,7 @@
 import { ReactNode, useState } from 'react';
 import type { IGame } from '@/store/reducers';
-import { GameCard, Pagination } from '@/components';
-
+import { GameCard, Pagination, Spiner } from '@/components';
+import { Col, Row, Divider, Space } from 'antd';
 interface IGamesCardsProps {
   games: IGame;
   isLoading: boolean;
@@ -29,29 +29,38 @@ export const GamesCards = ({
   }
 
   if (isLoading) {
-    return <div>{'Loading...'}</div>;
+    return <Spiner />;
   }
 
   return (
-    <div>
-      {Object.entries(currentGames).map((game, i) => {
-        const [gameId, { title, provider }] = game;
+    <Space direction='vertical' size='middle' style={{ display: 'flex' }}>
+      <Divider />
+      <Row gutter={[16, 16]}>
+        {Object.entries(currentGames).map((game) => {
+          const [gameId, { title, provider, demo }] = game;
 
-        return (
-          <GameCard
-            key={i}
-            gameId={String(gameId)}
-            title={String(title)}
-            provider={String(provider)}
-          />
-        );
-      })}
-      <Pagination
-        gamesInPage={gamesInPage}
-        totalGames={Object.keys(games).length}
-        paginate={paginate}
-        currentPage={currentPage}
-      />
-    </div>
+          return (
+            <Col span={4} key={gameId}>
+              <GameCard
+                gameId={gameId}
+                demo={String(demo)}
+                title={String(title)}
+                provider={String(provider)}
+              />
+            </Col>
+          );
+        })}
+      </Row>
+      <Divider />
+      <Row justify='center' align='middle'>
+        <Pagination
+          gamesInPage={gamesInPage}
+          totalGames={Object.keys(games).length}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
+      </Row>
+      <Divider />
+    </Space>
   );
 };

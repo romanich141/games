@@ -9,7 +9,6 @@ import {
   useSelectedProviderSelector,
   useProvidersSelector,
 } from '@/store/selectors';
-import 'react-select-search/style.css';
 
 export const ProviderFilter = () => {
   const { data = [] } = useFetch<IProvider[]>(PROVIDERS_URL);
@@ -34,6 +33,9 @@ export const ProviderFilter = () => {
       onChange={handleOnChange}
       options={providers}
       placeholder='Choose provider'
+      emptyMessage='Provider not found'
+      debounce={200}
+      search
     />
   );
 };
