@@ -1,6 +1,6 @@
-import { IGame } from '@/store/reducers/types';
+import { IGame } from '../reducers/types';
 import { useMemo } from 'react';
-import { useSearchTextSelector, useGamesByProvider } from '@/store/selectors';
+import { useSearchTextSelector, useGamesByProvider } from '../selectors';
 
 export const useSearchGamesSelector = () => {
   const searchText = useSearchTextSelector();

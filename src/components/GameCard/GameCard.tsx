@@ -9,7 +9,11 @@ interface IGameCardProps {
 
 const { Meta } = Card;
 
-export const GameCard = ({ gameId, title, demo }: IGameCardProps) => {
+export const GameCard = ({
+  gameId,
+  title,
+  demo,
+}: IGameCardProps): JSX.Element => {
   return (
     <Space>
       <Card

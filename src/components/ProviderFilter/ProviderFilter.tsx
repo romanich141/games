@@ -1,16 +1,20 @@
 import { useEffect } from 'react';
 import SelectSearch from 'react-select-search';
-import { PROVIDERS_URL } from '@/constants';
-import { useFetch } from '@/hooks';
-import { setProvidersAction, setSelectedProviderAction } from '@/store/actions';
-import { useDispatch } from '@/store/hooks';
-import { ISelectedProvider, IProvider } from '@/store/reducers/types';
+import { PROVIDERS_URL } from '../../constants';
+import { useFetch } from '../../hooks';
+import {
+  setProvidersAction,
+  setSelectedProviderAction,
+} from '../../store/actions';
+
+import { useDispatch } from '../../store/hooks';
+import { ISelectedProvider, IProvider } from '../../store/reducers/types';
 import {
   useSelectedProviderSelector,
   useProvidersSelector,
-} from '@/store/selectors';
+} from '../../store/selectors';
 
-export const ProviderFilter = () => {
+export const ProviderFilter = (): JSX.Element => {
   const { data = [] } = useFetch<IProvider[]>(PROVIDERS_URL);
 
   const selectedProvider = useSelectedProviderSelector();

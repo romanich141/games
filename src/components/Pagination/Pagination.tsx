@@ -11,7 +11,7 @@ export const Pagination = ({
   totalGames,
   paginate,
   currentPage,
-}: IPagination) => {
+}: IPagination): JSX.Element => {
   return (
     <AntdPagination
       pageSize={gamesInPage}

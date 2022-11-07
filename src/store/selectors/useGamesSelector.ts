@@ -1,4 +1,4 @@
-import { useState } from '@/store/hooks';
+import { useState } from '../hooks';
 
 export const useGamesSelector = () => {
   const { store } = useState();

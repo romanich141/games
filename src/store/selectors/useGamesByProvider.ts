@@ -1,9 +1,6 @@
 import { useMemo } from 'react';
-import { IGame } from '@/store/types/index';
-import {
-  useGamesSelector,
-  useSelectedProviderSelector,
-} from '@/store/selectors';
+import { IGame } from '../reducers/types';
+import { useGamesSelector, useSelectedProviderSelector } from '../selectors';
 
 export const useGamesByProvider = (): IGame => {
   const allGames = useGamesSelector();

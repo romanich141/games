@@ -1,15 +1,17 @@
 import { ReactNode, useState } from 'react';
-import type { IGame } from '@/store/reducers';
-import { GameCard, Pagination, Spiner } from '@/components';
+import { IGame } from '../../store/reducers/types';
+import { GameCard, Pagination, Spiner } from '../../components';
 import { Col, Row, Divider, Space } from 'antd';
 interface IGamesCardsProps {
   games: IGame;
   isLoading: boolean;
+  isEmptySearch: boolean;
 }
 
 export const GamesCards = ({
   games = {},
   isLoading,
+  isEmptySearch,
 }: IGamesCardsProps): ReactNode => {
   const [currentPage, setCurrentPage] = useState(1);
   const [gamesInPage] = useState(10);
@@ -30,6 +32,10 @@ export const GamesCards = ({
 
   if (isLoading) {
     return <Spiner />;
+  }
+
+  if (isEmptySearch) {
+    return <div>{'Game not found'}</div>;
   }
 
   return (

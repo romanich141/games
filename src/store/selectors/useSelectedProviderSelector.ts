@@ -1,5 +1,5 @@
-import { ISelectedProvider } from '@/store/reducers/types';
-import { useState } from '@/store/hooks';
+import { ISelectedProvider } from '../reducers/types';
+import { useState } from '../hooks';
 
 export const useSelectedProviderSelector = (): ISelectedProvider => {
   const { store } = useState();

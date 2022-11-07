@@ -1,12 +1,15 @@
 import { useEffect } from 'react';
 import { Col, Row } from 'antd';
-import { GamesCards, ProviderFilter, SearchGame } from '@/components';
-import { useFetch } from '@/hooks';
-import { setGamesAction } from '@/store/actions';
-import { useDispatch } from '@/store/hooks';
-import { useSearchGamesSelector } from '@/store/selectors';
-import { GAMES_URL } from '@/constants';
-import type { IGame } from '@/types';
+import { GamesCards, ProviderFilter, SearchGame } from '../../components';
+import { useFetch } from '../../hooks';
+import { setGamesAction } from '../../store/actions';
+import { useDispatch } from '../../store/hooks';
+import {
+  useSearchGamesSelector,
+  useSearchTextSelector,
+} from '../../store/selectors';
+import { GAMES_URL } from '../../constants';
+import type { IGame } from '../../store/reducers/types';
 
 import { Layout } from 'antd';
 
@@ -16,6 +19,7 @@ export const HomePage = () => {
   const { data = {}, isLoading } = useFetch<IGame>(GAMES_URL);
 
   const dispatch = useDispatch();
+  const search = useSearchTextSelector();
   const games = useSearchGamesSelector();
 
   useEffect(() => {
@@ -40,7 +44,11 @@ export const HomePage = () => {
         </Col>
       </Row>
       <Content>
-        <GamesCards games={games} isLoading={isLoading} />
+        <GamesCards
+          games={games}
+          isLoading={isLoading}
+          isEmptySearch={search && !Object.keys(games).length}
+        />
       </Content>
     </Layout>
   );

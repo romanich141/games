@@ -1,6 +1,5 @@
 import { createContext, ReactNode, useReducer } from 'react';
-import { reducer } from '../reducers';
-import { IStore } from '@/store/reducers';
+import { reducer, IStore } from '../reducers';
 import { IStoreContextProvider } from './types';
 
 interface IStoreProps {

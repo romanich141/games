@@ -1,4 +1,4 @@
-import { IGame, IProvider, TSearchGame } from '@/store/reducers/types';
+import { IGame, IProvider, TSearchGame } from '../reducers/types';
 
 export enum ActionKind {
   setGames = 'SET_GAMES',

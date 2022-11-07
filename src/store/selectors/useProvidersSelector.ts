@@ -1,5 +1,5 @@
-import { IProvider } from '@/store/reducers/types';
-import { useState } from '@/store/hooks';
+import { IProvider } from '../reducers/types';
+import { useState } from '../hooks';
 
 interface IProviderSelector {
   name: string;

@@ -1,5 +1,5 @@
-import { TSearchGame } from '@/store/reducers/types';
-import { useState } from '@/store/hooks';
+import { TSearchGame } from '../reducers/types';
+import { useState } from '../hooks';
 
 export const useSearchTextSelector = (): TSearchGame => {
   const { store } = useState();
