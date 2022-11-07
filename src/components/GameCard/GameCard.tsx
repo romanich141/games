@@ -13,7 +13,6 @@ export const GameCard = ({ gameId, title, demo }: IGameCardProps) => {
   return (
     <Space>
       <Card
-        loading={!`https://cdn.softswiss.net/i/s3/${gameId}.png`}
         hoverable
         style={{ width: 240, textAlign: 'center' }}
         cover={
@@ -25,7 +24,7 @@ export const GameCard = ({ gameId, title, demo }: IGameCardProps) => {
       >
         <Meta title={title} />
         <Divider />
-        <Link to={`${gameId}`} target='_blank' state={{ demo }}>
+        <Link to={`${gameId}`} state={{ demo }}>
           <Button className='' type='primary' danger size='large'>
             {'Play'}
           </Button>

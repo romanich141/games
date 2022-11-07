@@ -29,7 +29,7 @@ export const GamePage = (): JSX.Element => {
           }}
         >
           <iframe
-            src={`${API}${demoSrc}`}
+            src={`http://test-proxy-server-lup-env.eba-2ipxdf96.ap-southeast-2.elasticbeanstalk.com/${demoSrc}`}
             style={{
               display: 'block',
               minWidth: '100%',

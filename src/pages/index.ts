@@ -1,3 +1,3 @@
 export { PageNotFound } from './PageNotFound';
-export { MainPage } from './MainPage';
+export { HomePage } from './HomePage';
 export { GamePage } from './GamePage';

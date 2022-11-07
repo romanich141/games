@@ -1,7 +1,7 @@
 import { ChangeEvent } from 'react';
 import { useDispatch } from '@/store/hooks';
 import { setSearchGameAction } from '@/store/actions';
-import { useSearchTextSelector } from '../../store/selectors';
+import { useSearchTextSelector } from '@/store/selectors';
 import { SearchOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 

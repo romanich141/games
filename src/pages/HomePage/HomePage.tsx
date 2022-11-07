@@ -12,7 +12,7 @@ import { Layout } from 'antd';
 
 const { Content } = Layout;
 
-export const MainPage = () => {
+export const HomePage = () => {
   const { data = {}, isLoading } = useFetch<IGame>(GAMES_URL);
 
   const dispatch = useDispatch();
