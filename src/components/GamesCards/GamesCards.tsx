@@ -33,7 +33,11 @@ export const GamesCards = ({
   }
 
   return (
-    <Space direction='vertical' size='middle' style={{ display: 'flex' }}>
+    <Space
+      direction='vertical'
+      size='middle'
+      style={{ display: 'flex', padding: '20px' }}
+    >
       <Divider />
       <Row gutter={[16, 16]}>
         {Object.entries(currentGames).map((game) => {

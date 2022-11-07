@@ -10,7 +10,7 @@ import type { IGame } from '@/types';
 
 import { Layout } from 'antd';
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 
 export const MainPage = () => {
   const { data = {}, isLoading } = useFetch<IGame>(GAMES_URL);
@@ -26,16 +26,19 @@ export const MainPage = () => {
 
   return (
     <Layout>
-      <Header>
-        <Row gutter={[16, 16]} align='middle' justify='space-between'>
-          <Col span={12}>
-            <SearchGame />
-          </Col>
-          <Col span={12}>
-            <ProviderFilter />
-          </Col>
-        </Row>
-      </Header>
+      <Row
+        gutter={[16, 16]}
+        align='middle'
+        justify='center'
+        style={{ padding: '20px' }}
+      >
+        <Col span={6}>
+          <SearchGame />
+        </Col>
+        <Col span={6}>
+          <ProviderFilter />
+        </Col>
+      </Row>
       <Content>
         <GamesCards games={games} isLoading={isLoading} />
       </Content>

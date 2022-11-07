@@ -15,6 +15,11 @@ export const SearchGame = () => {
 
   return (
     <Input
+      style={{
+        height: '48px',
+        fontFamily: 'Inter var',
+        border: '2px solid #d5d5d5',
+      }}
       prefix={<SearchOutlined />}
       size='large'
       type='text'
